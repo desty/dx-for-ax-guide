@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="guide-version" content="2026.05">
+    <title>AX 시대를 위한 DX 가이드</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="common/base.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4L031NBC3Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4L031NBC3Z');
+    </script>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="nav-logo-icon">D</span>
+                <span>DX for AX</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#symptoms" class="nav-link">증상</a>
+                <a href="#foundations" class="nav-link">DX 10가지</a>
+                <a href="#evolution" class="nav-link">과거 vs 현재</a>
+                <a href="#plan" class="nav-link">부트스트랩</a>
+                <a href="#score" class="nav-link">자가 진단</a>
+            </div>
+            <a href="en/" class="lang-toggle" title="Read in English">EN</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+            <div class="hero-glow hero-glow-1"></div>
+            <div class="hero-glow hero-glow-2"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge">2026 Practical Guide</div>
+            <h1 class="hero-title">
+                AX 시대를 위한<br>
+                <span class="hero-gradient">DX 가이드</span>
+            </h1>
+            <p class="hero-subtitle">
+                AI를 잘 쓰려면 개발을 잘 해야 한다<br>
+                AX는 DX의 상위집합이다 — DX 없는 AX는 모래 위의 성이다
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">6</span>
+                    <span class="hero-stat-label">반복되는 증상</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">10</span>
+                    <span class="hero-stat-label">DX 기반 스킬</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">4주</span>
+                    <span class="hero-stat-label">부트스트랩 플랜</span>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#foundations" class="btn btn-primary">DX 10가지 보기</a>
+                <a href="#score" class="btn btn-secondary">자가 진단 먼저</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="hero-scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Symptoms Section -->
+    <section class="section" id="symptoms">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Symptoms</span>
+                <h2 class="section-title">DX 없이 AX에 뛰어들면 벌어지는 일들</h2>
+                <p class="section-desc"><a href="https://resources.anthropic.com/2026-agentic-coding-trends-report" target="_blank" style="color:var(--accent);border-bottom:1.5px solid var(--accent-dim)">Anthropic 2026 Report</a>: 개발자가 60% 위임하지만 0~20%만 신뢰 — 이 "위임 격차"의 원인은 AI가 아니라 DX입니다</p>
+            </div>
+
+            <div class="symptom-grid">
+                <div class="symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">1</div>
+                        <h4>AI 코드를 관리할 수 없다</h4>
+                    </div>
+                    <p>AI가 수백 줄을 생성하지만, diff를 읽을 수 없고, 브랜치를 나눌 줄 모르고, 롤백을 못 한다. AI 코드가 통제 불능의 블랙박스가 된다.</p>
+                    <div class="symptom-fix">해결: Git 기반 — diff 읽기, 브랜치 격리, 롤백 습관화</div>
+                </div>
+
+                <div class="symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">2</div>
+                        <h4>결과물이 맞는지 모르겠다</h4>
+                    </div>
+                    <p>AI는 "동작하는 것 같은" 코드를 만든다 — 업계에서 "Code Slop"이라 부르는 현상이다. 테스트 습관이 없으면 "AI 코드를 AI에게 검증시키는" 무한 루프에 빠진다. 프로덕션에서 터지고 나서야 안다.</p>
+                    <div class="symptom-fix">해결: 테스트 선행 작성 → AI 구현 패턴</div>
+                </div>
+
+                <div class="symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">3</div>
+                        <h4>깨진 코드를 고칠 수 없다</h4>
+                    </div>
+                    <p>"이거 고쳐줘"를 AI에게 던지면, AI는 코드를 더 복잡하게 만들어 "다른 방식으로" 깨뜨린다. 핑퐁 안티패턴의 시작이다.</p>
+                    <div class="symptom-fix">해결: 에러 메시지 읽기, 가설-검증 루프 훈련</div>
+                </div>
+
+                <div class="symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">4</div>
+                        <h4>뭘 시켜야 할지 모르겠다</h4>
+                    </div>
+                    <p>"앱 만들어줘"는 프롬프트가 아니라 기도다. 문제를 분해할 수 없으면, AI에게 줄 수 있는 건 모호한 요구사항뿐이고 돌아오는 건 모호한 결과물이다.</p>
+                    <div class="symptom-fix">해결: 문제 분해 → 단위별 AI 위임</div>
+                </div>
+
+                <div class="symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">5</div>
+                        <h4>프롬프트가 안 먹힌다</h4>
+                    </div>
+                    <p>좋은 프롬프트는 좋은 질문이다. <a href="https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html" target="_blank" style="color:var(--accent)">Martin Fowler</a>는 컨텍스트 엔지니어링이 AI 코딩에서 10x와 2x의 차이를 만드는 핵심 스킬이라 강조한다.</p>
+                    <div class="symptom-fix">해결: CLAUDE.md, 프로젝트 구조 정리 — 컨텍스트 엔지니어링</div>
+                </div>
+
+                <div class="symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">6</div>
+                        <h4>도구 설정에서 막힌다</h4>
+                    </div>
+                    <p>에이전틱 코딩 도구 대부분은 CLI 기반이다. 터미널, 환경 변수, 패키지 매니저를 다룰 줄 모르면 진입 장벽이 아니라 벽이다.</p>
+                    <div class="symptom-fix">해결: CLI 기본기, 환경 변수 관리 학습</div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <strong>AI 도구를 바꿔도, 모델을 업그레이드해도 해결되지 않는다.</strong> 기반을 다져야 한다. 좋은 소식은, 이 기반은 배울 수 있고, AX 시대에 맞게 효율적으로 배울 수 있다는 것이다.
+            </div>
+        </div>
+    </section>
+
+    <!-- Foundations Section -->
+    <section class="section section-dark" id="foundations">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">10 Foundations</span>
+                <h2 class="section-title">AX 시대에 맞게 재정의된 DX 10가지</h2>
+                <p class="section-desc"><a href="https://fortune.com/2026/03/31/fortune-com-2026-03-26-ai-agents-vibe-coding-developer-skills-supervisor-class/" target="_blank" style="color:var(--accent);border-bottom:1.5px solid var(--accent-dim)">Fortune</a>이 "감독자 계층의 부상"이라 부르는 변화 — Understanding · Directing · Verifying 3계층 스킬이 필요하다</p>
+            </div>
+
+            <div class="dx-grid">
+                <!-- 1. Git -->
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">1</div>
+                        <div>
+                            <h3>Git — 안전망이자 컨텍스트 소스</h3>
+                            <div class="dx-subtitle">버전 관리를 넘어 AI 협업의 기반으로</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">클래식 DX</span>
+                                <p>branch, merge, resolve conflicts</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX 시대 DX</span>
+                                <p>AI 코드의 diff 검토, 실험 격리(worktree), 즉시 롤백, 커밋 히스토리를 AI 컨텍스트로 활용</p>
+                            </div>
+                        </div>
+                        <p class="dx-why"><code>git diff</code>로 정확히 무엇이 바뀌었는지 보는 게 AI 코드를 한 줄씩 읽는 것보다 빠르다. 커밋 메시지와 히스토리는 AI에게 "이 프로젝트에서 뭘 했는지"를 알려주는 컨텍스트가 된다.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Testing -->
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">2</div>
+                        <div>
+                            <h3>테스트 — AI 출력 검증 체계</h3>
+                            <div class="dx-subtitle">TDD가 AI 시대에 새로운 의미를 갖다</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">클래식 DX</span>
+                                <p>유닛 테스트, 통합 테스트, TDD</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX 시대 DX</span>
+                                <p>AI 생성 코드의 자동 검증, 기대 결과 기반 assertion, 회귀 테스트로 AI 변경 안전성 확보</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">AI에게 코드를 생성시키기 <strong>전에</strong> 테스트를 먼저 작성하라. 테스트가 기대 결과를 정의하면, AI의 출력이 맞는지 틀린지를 즉시 판단할 수 있다.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Code Review -->
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">3</div>
+                        <div>
+                            <h3>코드 리뷰 — AI 코드 비판적 읽기</h3>
+                            <div class="dx-subtitle">AI는 자신 있는 것처럼 잘못된 코드를 만든다</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">클래식 DX</span>
+                                <p>PR 리뷰, 페어 프로그래밍</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX 시대 DX</span>
+                                <p>AI 생성 코드를 비판적으로 검토, "왜 이 구현인가" 질문, 보안·성능·유지보수성 체크</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">AI 코드를 "맞는 것 같으니까" 수락하는 건, 인턴이 짠 코드를 리뷰 없이 머지하는 것과 같다. AI 코드일수록 더 엄격하게 리뷰해야 한다.</p>
+                    </div>
+                </div>
+
+                <!-- 4. CI/CD -->
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">4</div>
+                        <div>
+                            <h3>CI/CD — 자동 품질 게이트</h3>
+                            <div class="dx-subtitle">AI 코드도 같은 기준을 통과해야 한다</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">클래식 DX</span>
+                                <p>빌드, 테스트, 린트, 배포 자동화</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX 시대 DX</span>
+                                <p>AI 생성 코드 포함 자동 테스트, 프리커밋 훅으로 품질 게이트, AI 워크플로우의 파이프라인화</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">CI가 없으면 AI가 만든 코드가 기존 코드를 깨뜨리는 걸 배포 후에야 알게 된다. CI는 AI 코드의 <strong>자동 안전장치</strong>다.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Context Engineering -->
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">5</div>
+                        <div>
+                            <h3>컨텍스트 엔지니어링 — AI를 위한 문서화</h3>
+                            <div class="dx-subtitle">가장 극적으로 달라진 영역</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">클래식 DX</span>
+                                <p>README, API 문서, 코드 주석</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX 시대 DX</span>
+                                <p>CLAUDE.md, 시스템 프롬프트, 구조화된 컨텍스트, 프롬프트 자산화</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">과거의 문서화는 "사람이 읽기 위한 것"이었다. 지금의 컨텍스트 엔지니어링은 <strong>"AI가 정확하게 이해하기 위한 것"</strong>이다. <a href="https://packmind.com/context-engineering-ai-coding/context-engineering-best-practices/" target="_blank" style="color:var(--accent)">모범사례</a>에 따르면, 효과적인 CLAUDE.md는 프로젝트 개요 → 아키텍처 원칙 → 컨벤션 → 테스트 전략 → 명령어 → 안티패턴 순으로 구성한다.</p>
+                    </div>
+                </div>
+
+                <!-- 6. Architecture -->
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">6</div>
+                        <div>
+                            <h3>아키텍처 — AI-Friendly 코드 구조</h3>
+                            <div class="dx-subtitle">좋은 아키텍처는 AI를 위한 것이기도 하다</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">클래식 DX</span>
+                                <p>관심사 분리, 레이어드 아키텍처, 마이크로서비스</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX 시대 DX</span>
+                                <p>AI가 이해하고 수정하기 쉬운 명확한 모듈 경계, 파일 하나가 하나의 책임</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">AI는 1,000줄짜리 God 클래스를 이해하는 <em>것 같지만</em> 수정할 때 다른 부분을 깨뜨린다. 200줄 이하의 집중된 모듈은 AI가 정확하게 이해하고 수정할 수 있다.</p>
+                    </div>
+                </div>
+
+                <!-- 7. CLI -->
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">7</div>
+                        <div>
+                            <h3>CLI/터미널 — 에이전트 인터페이스</h3>
+                            <div class="dx-subtitle">에이전틱 코딩의 핵심 인터페이스는 GUI가 아니다</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">클래식 DX</span>
+                                <p>셸 명령어, 스크립트, 터미널 워크플로우</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX 시대 DX</span>
+                                <p>MCP 서버 설정, 도구 정의, 에이전트에게 권한과 도구 부여</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">Claude Code, Codex, aider — 모두 터미널에서 돌아간다. MCP 서버를 설정하고, 도구를 정의하고, 에이전트의 권한을 관리하는 것이 새로운 "개발 환경 설정"이다.</p>
+                    </div>
+                </div>
+
+                <!-- 8. Debugging -->
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">8</div>
+                        <div>
+                            <h3>디버깅 — AI 협력 디버깅</h3>
+                            <div class="dx-subtitle">"이거 고쳐줘"와 "가능한 원인이 뭐야?"는 다르다</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">클래식 DX</span>
+                                <p>브레이크포인트, 로깅, 프로파일링</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX 시대 DX</span>
+                                <p>AI 환각 식별, 프롬프트 디버깅, AI와 함께하는 원인 추론 (단, AI가 만든 코드의 디버깅은 직접)</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">디버깅은 AI에게 위임하면 안 되는 대표적인 영역이다. 하지만 디버깅 <strong>과정에서</strong> AI를 활용할 수는 있다. 이 차이를 아는 것 자체가 DX 역량이다.</p>
+                    </div>
+                </div>
+
+                <!-- 9. Environment -->
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">9</div>
+                        <div>
+                            <h3>환경 관리 — AI 도구 환경</h3>
+                            <div class="dx-subtitle">전통적인 환경 관리의 확장</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">클래식 DX</span>
+                                <p>Docker, 환경 변수, 패키지 매니저, 가상 환경</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX 시대 DX</span>
+                                <p>API 키 관리, 모델 설정, 샌드박스 환경, 도구 권한 관리</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">AI 도구를 쓰려면 API 키를 안전하게 관리해야 하고, 에이전트가 파일 시스템에 접근할 때 적절한 샌드박스를 설정해야 한다.</p>
+                    </div>
+                </div>
+
+                <!-- 10. API/Tool Design -->
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">10</div>
+                        <div>
+                            <h3>API 설계 — Tool/Function 설계</h3>
+                            <div class="dx-subtitle">API를 설계할 줄 아는 사람이 AI 도구를 설계할 수 있다</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">클래식 DX</span>
+                                <p>REST API, GraphQL, SDK 설계</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX 시대 DX</span>
+                                <p>함수 호출 스키마, MCP 프로토콜, 구조화된 출력 정의</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">AI에게 도구를 주려면, 그 도구의 인터페이스를 명확하게 정의해야 한다. 파라미터 이름, 타입, 설명 — 이 모든 것이 AI가 도구를 올바르게 사용할지를 결정한다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evolution Section -->
+    <section class="section" id="evolution">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Evolution</span>
+                <h2 class="section-title">과거의 DX vs 현재의 DX</h2>
+                <p class="section-desc">"나는 DX 시대를 겪었으니 괜찮다"고 생각하는 시니어도 주의가 필요합니다</p>
+            </div>
+
+            <div class="evo-table-wrapper">
+                <table class="evo-table">
+                    <thead>
+                        <tr>
+                            <th>영역</th>
+                            <th>2020년 DX</th>
+                            <th>2026년 AX 시대 DX</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>문서화의 소비자</td>
+                            <td>사람 (동료, 미래의 나)</td>
+                            <td class="evo-highlight">사람 + AI</td>
+                        </tr>
+                        <tr>
+                            <td>코드 리뷰 대상</td>
+                            <td>동료가 작성한 코드</td>
+                            <td class="evo-highlight">동료 + AI가 생성한 코드</td>
+                        </tr>
+                        <tr>
+                            <td>테스트의 목적</td>
+                            <td>내 코드의 정확성 확인</td>
+                            <td class="evo-highlight">내 코드 + AI 출력의 정확성 확인</td>
+                        </tr>
+                        <tr>
+                            <td>CLI 활용</td>
+                            <td>개발 편의성</td>
+                            <td class="evo-highlight">에이전트 운영의 필수 조건</td>
+                        </tr>
+                        <tr>
+                            <td>아키텍처 기준</td>
+                            <td>사람이 유지보수하기 좋은 구조</td>
+                            <td class="evo-highlight">사람 + AI가 이해·수정하기 좋은 구조</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="insight-box">
+                <strong>과거에 DX를 잘 했던 사람은 빠르게 적응할 수 있다.</strong> 새로운 것을 처음부터 배우는 게 아니라, 기존 역량에 AI 레이어를 얹는 것이기 때문이다. 하지만 "과거 방식 그대로" 적용하면 놓치는 것들이 있다. 문서를 사람만을 위해 쓰고, AI의 컨텍스트 윈도우는 고려하지 않는 식이다.
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap Plan Section -->
+    <section class="section section-dark" id="plan">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Bootstrap</span>
+                <h2 class="section-title">4주 DX 부트스트랩 플랜</h2>
+                <p class="section-desc">AX를 하면서 DX를 배운다 — 병렬 학습 전략</p>
+            </div>
+
+            <div class="plan-timeline">
+                <div class="plan-week">
+                    <div class="plan-week-badge">Week 1</div>
+                    <h4>Git + 터미널</h4>
+                    <p>AI 프로젝트에서 브랜치 워크플로우 적용. AI가 코드를 생성할 때마다 commit하고, diff를 읽고, 브랜치를 나눈다. GUI로 하던 작업 하나를 터미널로 전환.</p>
+                </div>
+
+                <div class="plan-week">
+                    <div class="plan-week-badge">Week 2</div>
+                    <h4>테스트 + CI</h4>
+                    <p>테스트 선행 → AI 구현 패턴 3회 이상 실행. 프로젝트에 pre-commit hook이 없다면 린트 + 타입 체크만이라도 설정.</p>
+                </div>
+
+                <div class="plan-week">
+                    <div class="plan-week-badge">Week 3</div>
+                    <h4>컨텍스트 엔지니어링</h4>
+                    <p>메인 프로젝트에 CLAUDE.md 작성 (1,500 토큰 이하 목표). AI에게 줄 컨텍스트를 정리하는 과정이 곧 프로젝트를 이해하는 과정.</p>
+                </div>
+
+                <div class="plan-week">
+                    <div class="plan-week-badge">Week 4</div>
+                    <h4>아키텍처 + 리뷰</h4>
+                    <p>가장 큰 파일 하나를 AI와 함께 분리 리팩터링. AI 코드 수락 전 리뷰 체크리스트 적용: 왜 이 방식인지, 보안 취약점은 없는지, 엣지 케이스는 처리하는지.</p>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <strong>AX 시대의 역설: AI를 잘 쓰려면 AI 없이도 할 수 있어야 한다.</strong> AI가 멈췄을 때 당신도 멈추면, AI는 도구가 아니라 산소호흡기다. 도구는 없어도 불편한 것이고, 산소호흡기는 없으면 죽는 것이다. DX 기반이 있는 사람에게 AI는 도구다. 없는 사람에게 AI는 산소호흡기가 된다.
+            </div>
+        </div>
+    </section>
+
+    <!-- Score Section -->
+    <section class="section" id="score">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Self-Assessment</span>
+                <h2 class="section-title">자가 진단: AX를 위한 DX 점수</h2>
+                <p class="section-desc">각 항목 1점. 솔직하게 체크하세요.</p>
+            </div>
+
+            <div class="score-grid">
+                <div class="score-item">
+                    <div class="score-num">1</div>
+                    <span><code>git diff</code>를 읽고 AI 코드 변경을 판단할 수 있다</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">2</div>
+                    <span>AI 코드를 검증할 테스트를 작성할 수 있다</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">3</div>
+                    <span>에러 메시지를 읽고 원인을 추론할 수 있다</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">4</div>
+                    <span>CLAUDE.md 등 AI용 컨텍스트를 구조화했다</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">5</div>
+                    <span>터미널에서 AI 도구를 설정/운영할 수 있다</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">6</div>
+                    <span>AI 없이도 핵심 업무를 수행할 수 있다</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">7</div>
+                    <span>문제를 적절한 단위로 분해해 AI에 위임할 수 있다</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">8</div>
+                    <span>CI/CD로 AI 코드 품질을 자동 검증하고 있다</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">9</div>
+                    <span>API/도구 스키마를 AI가 쓸 수 있게 설계할 수 있다</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">10</div>
+                    <span>AI가 만든 코드를 3분 안에 설명할 수 있다</span>
+                </div>
+            </div>
+
+            <div class="score-legend">
+                <span class="score-ready">7-10점: AX 준비 완료</span>
+                <span class="score-improve">5-6점: 보강 필요</span>
+                <span class="score-priority">0-4점: DX 우선 강화</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <span class="nav-logo-icon">D</span>
+                        <span>DX for AX Guide</span>
+                    </div>
+                    <p>AX는 목적지다. DX는 그곳에 도달하기 위한 도로다. 도로 없이 달릴 수는 없다.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Related</h4>
+                    <ul>
+                        <li><a href="https://desty.github.io/blog/12-dx-for-ax/" target="_blank">블로그: AX 시대를 위한 DX</a></li>
+                        <li><a href="https://desty.github.io/blog/11-cognitive-debt-and-agentic-coding/" target="_blank">블로그: AI 코딩의 경고등</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>References</h4>
+                    <ul>
+                        <li><a href="https://resources.anthropic.com/2026-agentic-coding-trends-report" target="_blank">Anthropic 2026 Agentic Coding Report</a></li>
+                        <li><a href="https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html" target="_blank">Martin Fowler, Context Engineering</a></li>
+                        <li><a href="https://nordicapis.com/what-is-agent-experience-ax/" target="_blank">Nordic APIs, What Is AX?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="https://desty.github.io/blog/" target="_blank">Blog</a></li>
+                        <li><a href="https://www.linkedin.com/in/desty" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Built by <a href="https://desty.github.io/">desty</a>. Last updated: 2026-05-16.</p>
+                <span class="footer-version">v2026.05</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="common/base.js"></script>
+</body>
+</html>

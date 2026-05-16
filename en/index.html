@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="guide-version" content="2026.05">
+    <title>DX for the AX Era — Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../common/base.css">
+    <link rel="stylesheet" href="../style.css">
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4L031NBC3Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4L031NBC3Z');
+    </script>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="nav-logo-icon">D</span>
+                <span>DX for AX</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#symptoms" class="nav-link">Symptoms</a>
+                <a href="#foundations" class="nav-link">10 Foundations</a>
+                <a href="#evolution" class="nav-link">Past vs Present</a>
+                <a href="#plan" class="nav-link">Bootstrap</a>
+                <a href="#score" class="nav-link">Self-Assessment</a>
+            </div>
+            <a href="../" class="lang-toggle" title="한국어로 읽기">KO</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+            <div class="hero-glow hero-glow-1"></div>
+            <div class="hero-glow hero-glow-2"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge">2026 Practical Guide</div>
+            <h1 class="hero-title">
+                DX for the<br>
+                <span class="hero-gradient">AX Era</span>
+            </h1>
+            <p class="hero-subtitle">
+                You need dev skills to use AI well<br>
+                AX is a superset of DX — AX without DX is a castle built on sand
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">6</span>
+                    <span class="hero-stat-label">Recurring Symptoms</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">10</span>
+                    <span class="hero-stat-label">DX Foundations</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">4wk</span>
+                    <span class="hero-stat-label">Bootstrap Plan</span>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#foundations" class="btn btn-primary">View 10 Foundations</a>
+                <a href="#score" class="btn btn-secondary">Self-Assessment First</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="hero-scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Symptoms Section -->
+    <section class="section" id="symptoms">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Symptoms</span>
+                <h2 class="section-title">What Happens When You Skip DX</h2>
+                <p class="section-desc"><a href="https://resources.anthropic.com/2026-agentic-coding-trends-report" target="_blank" style="color:var(--accent);border-bottom:1.5px solid var(--accent-dim)">Anthropic 2026 Report</a>: developers delegate 60% but trust only 0–20% — this "Delegation Gap" is a DX problem, not an AI problem</p>
+            </div>
+
+            <div class="symptom-grid">
+                <div class="symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">1</div>
+                        <h4>Can't manage AI code</h4>
+                    </div>
+                    <p>AI generates hundreds of lines, but you can't read diffs, don't know how to branch, and can't roll back. AI code becomes an uncontrollable black box.</p>
+                    <div class="symptom-fix">Fix: Git fundamentals — read diffs, isolate in branches, practice rollbacks</div>
+                </div>
+
+                <div class="symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">2</div>
+                        <h4>Can't verify if output is correct</h4>
+                    </div>
+                    <p>AI produces code that "looks like it works" — the industry calls this "Code Slop." Without a testing habit, you fall into a loop of asking AI to verify AI output. Problems surface only in production.</p>
+                    <div class="symptom-fix">Fix: Write tests first → have AI implement</div>
+                </div>
+
+                <div class="symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">3</div>
+                        <h4>Can't fix broken code</h4>
+                    </div>
+                    <p>Tossing "fix this" back to AI makes code more complex and breaks it differently. This is the ping-pong anti-pattern.</p>
+                    <div class="symptom-fix">Fix: Read error messages, train hypothesis-verify loops</div>
+                </div>
+
+                <div class="symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">4</div>
+                        <h4>Don't know what to ask for</h4>
+                    </div>
+                    <p>"Build me an app" isn't a prompt — it's a prayer. Without problem decomposition skills, you can only give vague requirements and get vague results.</p>
+                    <div class="symptom-fix">Fix: Decompose problems → delegate by unit</div>
+                </div>
+
+                <div class="symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">5</div>
+                        <h4>Prompts don't work</h4>
+                    </div>
+                    <p><a href="https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html" target="_blank" style="color:var(--accent)">Martin Fowler</a> calls context engineering the skill that separates 10x from 2x AI value. Without knowing project structure, dependencies, and constraints, you don't even know what to provide as context.</p>
+                    <div class="symptom-fix">Fix: CLAUDE.md, project structure organization — context engineering</div>
+                </div>
+
+                <div class="symptom-card">
+                    <div class="symptom-header">
+                        <div class="symptom-icon">6</div>
+                        <h4>Stuck on tool setup</h4>
+                    </div>
+                    <p>Most agentic coding tools are CLI-based. Without terminal, env vars, and package manager skills, it's not a speed bump — it's a wall.</p>
+                    <div class="symptom-fix">Fix: CLI basics, environment variable management</div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <strong>Switching AI tools or upgrading models won't fix these.</strong> You need to build the foundation. The good news: these foundations are learnable, and you can learn them efficiently through AX-era workflows.
+            </div>
+        </div>
+    </section>
+
+    <!-- Foundations Section -->
+    <section class="section section-dark" id="foundations">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">10 Foundations</span>
+                <h2 class="section-title">10 DX Skills Redefined for the AX Era</h2>
+                <p class="section-desc"><a href="https://fortune.com/2026/03/31/fortune-com-2026-03-26-ai-agents-vibe-coding-developer-skills-supervisor-class/" target="_blank" style="color:var(--accent);border-bottom:1.5px solid var(--accent-dim)">Fortune</a> calls it "the rise of the Supervisor Class" — three skill layers needed: Understanding · Directing · Verifying</p>
+            </div>
+
+            <div class="dx-grid">
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">1</div>
+                        <div>
+                            <h3>Git — Safety Net & Context Source</h3>
+                            <div class="dx-subtitle">Beyond version control, the foundation for AI collaboration</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">Classical DX</span>
+                                <p>branch, merge, resolve conflicts</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX-Era DX</span>
+                                <p>Reviewing AI code diffs, isolating experiments (worktrees), instant rollback, using commit history as AI context</p>
+                            </div>
+                        </div>
+                        <p class="dx-why"><code>git diff</code> shows exactly what changed — faster than reading AI code line by line. Commit messages and history become context that tells AI "what's happened in this project."</p>
+                    </div>
+                </div>
+
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">2</div>
+                        <div>
+                            <h3>Testing — AI Output Verification</h3>
+                            <div class="dx-subtitle">TDD finds new meaning in the AI era</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">Classical DX</span>
+                                <p>Unit tests, integration tests, TDD</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX-Era DX</span>
+                                <p>Automated verification of AI-generated code, assertion-based validation, regression tests for AI change safety</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">Write tests <strong>before</strong> asking AI to generate code. When tests define expected outcomes, you can instantly judge whether AI output is correct.</p>
+                    </div>
+                </div>
+
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">3</div>
+                        <div>
+                            <h3>Code Review — Critical AI Output Reading</h3>
+                            <div class="dx-subtitle">AI writes incorrect code with full confidence</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">Classical DX</span>
+                                <p>PR reviews, pair programming</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX-Era DX</span>
+                                <p>Critically reviewing AI-generated code, asking "why this implementation?", checking security, performance, maintainability</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">Accepting AI code because "it looks right" is like merging an intern's code without review. AI code demands <strong>stricter</strong> review.</p>
+                    </div>
+                </div>
+
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">4</div>
+                        <div>
+                            <h3>CI/CD — Automatic Quality Gates</h3>
+                            <div class="dx-subtitle">AI code must pass the same standards</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">Classical DX</span>
+                                <p>Build, test, lint, deploy automation</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX-Era DX</span>
+                                <p>Automated testing of AI-generated code, pre-commit hooks as quality gates, pipelining AI workflows</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">Without CI, you only discover AI-generated code breaks existing code after deployment. CI is AI code's <strong>automatic safety net</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">5</div>
+                        <div>
+                            <h3>Context Engineering — Documentation for AI</h3>
+                            <div class="dx-subtitle">The most dramatically changed area</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">Classical DX</span>
+                                <p>README, API docs, code comments</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX-Era DX</span>
+                                <p>CLAUDE.md, system prompts, structured context, prompt asset management</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">Past documentation was "for humans to read." Today's context engineering is <strong>"for AI to understand precisely."</strong> <a href="https://packmind.com/context-engineering-ai-coding/context-engineering-best-practices/" target="_blank" style="color:var(--accent)">Best practices</a> show effective CLAUDE.md follows: project overview → architecture principles → conventions → testing strategy → commands → anti-patterns.</p>
+                    </div>
+                </div>
+
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">6</div>
+                        <div>
+                            <h3>Architecture — AI-Friendly Structure</h3>
+                            <div class="dx-subtitle">Good architecture isn't just for humans anymore</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">Classical DX</span>
+                                <p>Separation of concerns, layered architecture, microservices</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX-Era DX</span>
+                                <p>Clear module boundaries AI can understand and modify, one file = one responsibility</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">AI can't handle 1,000-line God classes. It <em>seems</em> to understand them but breaks other parts when modifying. Sub-200-line focused modules let AI work accurately.</p>
+                    </div>
+                </div>
+
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">7</div>
+                        <div>
+                            <h3>CLI/Terminal — Agent Interface</h3>
+                            <div class="dx-subtitle">The core interface of agentic coding isn't a GUI</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">Classical DX</span>
+                                <p>Shell commands, scripts, terminal workflows</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX-Era DX</span>
+                                <p>MCP server setup, tool definitions, granting agents permissions and tools</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">Claude Code, Codex, aider — they all run in the terminal. Setting up MCP servers, defining tools, and managing agent permissions is the new "dev environment setup."</p>
+                    </div>
+                </div>
+
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">8</div>
+                        <div>
+                            <h3>Debugging — AI-Collaborative Debugging</h3>
+                            <div class="dx-subtitle">"Fix this" vs "What could cause this?" — know the difference</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">Classical DX</span>
+                                <p>Breakpoints, logging, profiling</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX-Era DX</span>
+                                <p>Identifying AI hallucinations, prompt debugging, reasoning about causes with AI (but debugging AI code yourself)</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">Debugging shouldn't be delegated to AI. But you can leverage AI <strong>during</strong> the process. Knowing this difference is itself a DX competency.</p>
+                    </div>
+                </div>
+
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">9</div>
+                        <div>
+                            <h3>Environment Management — AI Tool Environments</h3>
+                            <div class="dx-subtitle">A natural extension of traditional env management</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">Classical DX</span>
+                                <p>Docker, env vars, package managers, virtual environments</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX-Era DX</span>
+                                <p>API key management, model configuration, sandbox environments, tool permission management</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">Using AI tools means securely managing API keys and setting up appropriate sandboxes when agents access the file system.</p>
+                    </div>
+                </div>
+
+                <div class="dx-card">
+                    <div class="dx-header">
+                        <div class="dx-number">10</div>
+                        <div>
+                            <h3>API Design — Tool/Function Design</h3>
+                            <div class="dx-subtitle">People who can design APIs can design AI tools</div>
+                        </div>
+                    </div>
+                    <div class="dx-body">
+                        <div class="dx-comparison">
+                            <div class="dx-col dx-col-classic">
+                                <span class="dx-col-label">Classical DX</span>
+                                <p>REST API, GraphQL, SDK design</p>
+                            </div>
+                            <div class="dx-col dx-col-ax">
+                                <span class="dx-col-label">AX-Era DX</span>
+                                <p>Function calling schemas, MCP protocol, structured output definitions</p>
+                            </div>
+                        </div>
+                        <p class="dx-why">To give AI tools, you need clear interface definitions. Parameter names, types, descriptions — all determine whether AI uses a tool correctly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evolution Section -->
+    <section class="section" id="evolution">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Evolution</span>
+                <h2 class="section-title">Past DX vs Present DX</h2>
+                <p class="section-desc">Senior developers who think "I lived through the DX era, so I'm fine" should pay attention too</p>
+            </div>
+
+            <div class="evo-table-wrapper">
+                <table class="evo-table">
+                    <thead>
+                        <tr>
+                            <th>Area</th>
+                            <th>2020 DX</th>
+                            <th>2026 AX-Era DX</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Documentation audience</td>
+                            <td>Humans (colleagues, future self)</td>
+                            <td class="evo-highlight">Humans + AI</td>
+                        </tr>
+                        <tr>
+                            <td>Code review targets</td>
+                            <td>Code written by colleagues</td>
+                            <td class="evo-highlight">Code from colleagues + AI</td>
+                        </tr>
+                        <tr>
+                            <td>Purpose of testing</td>
+                            <td>Verify my code's correctness</td>
+                            <td class="evo-highlight">Verify my code + AI output</td>
+                        </tr>
+                        <tr>
+                            <td>CLI usage</td>
+                            <td>Development convenience</td>
+                            <td class="evo-highlight">Essential for agent operations</td>
+                        </tr>
+                        <tr>
+                            <td>Architecture criteria</td>
+                            <td>Structures humans can maintain</td>
+                            <td class="evo-highlight">Structures humans + AI can understand & modify</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="insight-box">
+                <strong>People who were good at DX before can adapt quickly.</strong> They're not learning from scratch — they're adding an AI layer to existing competencies. But applying "the old way as-is" means missing things, like writing documentation only for humans while ignoring AI's context window constraints.
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap Plan Section -->
+    <section class="section section-dark" id="plan">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Bootstrap</span>
+                <h2 class="section-title">4-Week DX Bootstrap Plan</h2>
+                <p class="section-desc">Learn DX while doing AX — parallel learning strategy</p>
+            </div>
+
+            <div class="plan-timeline">
+                <div class="plan-week">
+                    <div class="plan-week-badge">Week 1</div>
+                    <h4>Git + Terminal</h4>
+                    <p>Apply branch workflow to AI projects. Commit every time AI generates code, read diffs, create branches. Convert one GUI task to terminal.</p>
+                </div>
+
+                <div class="plan-week">
+                    <div class="plan-week-badge">Week 2</div>
+                    <h4>Testing + CI</h4>
+                    <p>Execute test-first → AI-implement pattern 3+ times. If your project lacks pre-commit hooks, set up at minimum lint + type check.</p>
+                </div>
+
+                <div class="plan-week">
+                    <div class="plan-week-badge">Week 3</div>
+                    <h4>Context Engineering</h4>
+                    <p>Write CLAUDE.md for your main project (target under 1,500 tokens). Organizing context for AI is simultaneously the process of understanding your project.</p>
+                </div>
+
+                <div class="plan-week">
+                    <div class="plan-week-badge">Week 4</div>
+                    <h4>Architecture + Review</h4>
+                    <p>Pick your largest file and split-refactor it with AI. Apply review checklist before accepting AI code: why this approach, security vulnerabilities, edge cases.</p>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <strong>The AX era paradox: to use AI well, you must be able to work without it.</strong> If AI stops and you stop too, AI isn't a tool — it's a life support machine. A tool is something you miss when it's gone. Life support is something you die without. For people with DX foundations, AI is a tool. For those without, AI becomes life support.
+            </div>
+        </div>
+    </section>
+
+    <!-- Score Section -->
+    <section class="section" id="score">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Self-Assessment</span>
+                <h2 class="section-title">DX Score for AX Readiness</h2>
+                <p class="section-desc">1 point each. Be honest.</p>
+            </div>
+
+            <div class="score-grid">
+                <div class="score-item">
+                    <div class="score-num">1</div>
+                    <span>Can read <code>git diff</code> and evaluate AI code changes</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">2</div>
+                    <span>Can write tests to verify AI-generated code</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">3</div>
+                    <span>Can read error messages and reason about root causes</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">4</div>
+                    <span>Have structured AI context (CLAUDE.md, etc.)</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">5</div>
+                    <span>Can set up and operate AI tools in the terminal</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">6</div>
+                    <span>Can perform core work without AI</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">7</div>
+                    <span>Can decompose problems into units for AI delegation</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">8</div>
+                    <span>Using CI/CD to auto-verify AI code quality</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">9</div>
+                    <span>Can design API/tool schemas AI can use correctly</span>
+                </div>
+                <div class="score-item">
+                    <div class="score-num">10</div>
+                    <span>Can explain AI-generated code in 3 minutes</span>
+                </div>
+            </div>
+
+            <div class="score-legend">
+                <span class="score-ready">7-10: AX Ready</span>
+                <span class="score-improve">5-6: Needs Work</span>
+                <span class="score-priority">0-4: Prioritize DX</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <span class="nav-logo-icon">D</span>
+                        <span>DX for AX Guide</span>
+                    </div>
+                    <p>AX is the destination. DX is the road that gets you there. You can't drive without a road.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Related</h4>
+                    <ul>
+                        <li><a href="https://desty.github.io/en/blog/12-dx-for-ax/" target="_blank">Blog: DX for the AX Era</a></li>
+                        <li><a href="https://desty.github.io/en/blog/11-cognitive-debt-and-agentic-coding/" target="_blank">Blog: AI Coding Warning Signs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>References</h4>
+                    <ul>
+                        <li><a href="https://resources.anthropic.com/2026-agentic-coding-trends-report" target="_blank">Anthropic 2026 Agentic Coding Report</a></li>
+                        <li><a href="https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html" target="_blank">Martin Fowler, Context Engineering</a></li>
+                        <li><a href="https://nordicapis.com/what-is-agent-experience-ax/" target="_blank">Nordic APIs, What Is AX?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="https://desty.github.io/en/blog/" target="_blank">Blog</a></li>
+                        <li><a href="https://www.linkedin.com/in/desty" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Built by <a href="https://desty.github.io/">desty</a>. Last updated: 2026-05-16.</p>
+                <span class="footer-version">v2026.05</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../common/base.js"></script>
+</body>
+</html>
