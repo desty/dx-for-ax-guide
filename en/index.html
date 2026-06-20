@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="guide-version" content="2026.05">
+    <meta name="guide-version" content="2026.06">
     <title>DX for the AX Era — Guide</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +33,7 @@
             <div class="nav-links" id="navLinks">
                 <a href="#symptoms" class="nav-link">Symptoms</a>
                 <a href="#foundations" class="nav-link">10 Foundations</a>
+                <a href="#loop" class="nav-link">Outer Loop</a>
                 <a href="#evolution" class="nav-link">Past vs Present</a>
                 <a href="#plan" class="nav-link">Bootstrap</a>
                 <a href="#score" class="nav-link">Self-Assessment</a>
@@ -389,12 +390,43 @@
                             </div>
                             <div class="dx-col dx-col-ax">
                                 <span class="dx-col-label">AX-Era DX</span>
-                                <p>Function calling schemas, MCP protocol, structured output definitions</p>
+                                <p>Function calling schemas, MCP protocol, structured output definitions, contract-first</p>
                             </div>
                         </div>
                         <p class="dx-why">To give AI tools, you need clear interface definitions. Parameter names, types, descriptions — all determine whether AI uses a tool correctly.</p>
+                        <p class="dx-why">The same principle spreads to team collaboration. The old order — backend builds first, frontend catches up — only creates conflicts when both sides' agents generate code at once. So teams now <strong>agree on the contract first</strong> (OpenAPI, schemas) and feed it as context to agents on both sides to implement in parallel. The interface definition becomes the synchronization point of collaboration.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outer Loop Section -->
+    <section class="section" id="loop">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Beyond the 10</span>
+                <h2 class="section-title">One Level Up — Engineer the Outer Loop</h2>
+                <p class="section-desc">If the 10 foundations support an agent's "inner loop," the next challenge is the "outer loop"</p>
+            </div>
+
+            <div class="dx-comparison" style="max-width:880px;margin:0 auto 32px;">
+                <div class="dx-col dx-col-classic">
+                    <span class="dx-col-label">Inner Loop</span>
+                    <p>The process of an agent doing one task — reading code, editing, testing, iterating. The 10 foundations support this. It's already heavily automated.</p>
+                </div>
+                <div class="dx-col dx-col-ax">
+                    <span class="dx-col-label">Outer Loop</span>
+                    <p>Deciding what to assign, queuing it, verifying the result, and re-submitting. This has been <strong>the human's seat</strong> all along. The genuinely new work is here.</p>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <strong>Remove the person who hands work to the agent.</strong> The race to make a single agent fast is already over. The next leverage is automating the outer loop that defines, distributes, verifies, and re-submits work. Triggers (a new issue, a CI failure, a monitoring alert) create work, verification gates decide pass or fail, and failures get sent back to the queue — designing a loop that keeps turning without a human stepping in every time.
+            </div>
+
+            <div class="insight-box">
+                <strong>That's why the bottleneck moved to "judgment."</strong> As AI started building AI, code generation became effectively free. What turned scarce is the judgment to tell whether something is correct, worth doing, and sufficient. The more you automate the outer loop, the more the human role shifts from hitting keys to designing the verification criteria and stop conditions. The quality of your verification gates becomes the ceiling on the quality of the whole system.
             </div>
         </div>
     </section>
@@ -442,6 +474,11 @@
                             <td>Architecture criteria</td>
                             <td>Structures humans can maintain</td>
                             <td class="evo-highlight">Structures humans + AI can understand & modify</td>
+                        </tr>
+                        <tr>
+                            <td>Who assigns the work</td>
+                            <td>Humans direct each task by hand</td>
+                            <td class="evo-highlight">An outer loop of triggers & verification gates (humans design the criteria)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -590,7 +627,7 @@
             </div>
             <div class="footer-bottom">
                 <p>Built by <a href="https://desty.github.io/">desty</a>. Last updated: 2026-05-16.</p>
-                <span class="footer-version">v2026.05</span>
+                <span class="footer-version">v2026.06</span>
             </div>
         </div>
     </footer>

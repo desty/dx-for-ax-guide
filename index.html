@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="guide-version" content="2026.05">
+    <meta name="guide-version" content="2026.06">
     <title>AX 시대를 위한 DX 가이드</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +33,7 @@
             <div class="nav-links" id="navLinks">
                 <a href="#symptoms" class="nav-link">증상</a>
                 <a href="#foundations" class="nav-link">DX 10가지</a>
+                <a href="#loop" class="nav-link">바깥 루프</a>
                 <a href="#evolution" class="nav-link">과거 vs 현재</a>
                 <a href="#plan" class="nav-link">부트스트랩</a>
                 <a href="#score" class="nav-link">자가 진단</a>
@@ -399,12 +400,43 @@
                             </div>
                             <div class="dx-col dx-col-ax">
                                 <span class="dx-col-label">AX 시대 DX</span>
-                                <p>함수 호출 스키마, MCP 프로토콜, 구조화된 출력 정의</p>
+                                <p>함수 호출 스키마, MCP 프로토콜, 구조화된 출력 정의, 계약 먼저(contract-first)</p>
                             </div>
                         </div>
                         <p class="dx-why">AI에게 도구를 주려면, 그 도구의 인터페이스를 명확하게 정의해야 한다. 파라미터 이름, 타입, 설명 — 이 모든 것이 AI가 도구를 올바르게 사용할지를 결정한다.</p>
+                        <p class="dx-why">같은 원리가 팀 협업에도 번진다. BE가 먼저 만들고 FE가 뒤따라 맞추던 순서는, 양쪽 에이전트가 동시에 코드를 뽑는 바이브코딩에서는 충돌만 키운다. 그래서 OpenAPI·스키마 같은 <strong>계약을 먼저 합의</strong>하고, 그 계약을 컨텍스트로 양쪽 에이전트에 물려 병렬로 구현시키는 방식으로 바뀐다. 인터페이스 정의가 곧 협업의 동기화 지점이 되는 셈이다.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outer Loop Section -->
+    <section class="section" id="loop">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Beyond the 10</span>
+                <h2 class="section-title">한 단계 위 — 바깥 루프를 설계하라</h2>
+                <p class="section-desc">DX 10가지가 에이전트의 '안쪽 루프'를 떠받친다면, 다음 과제는 '바깥 루프'다</p>
+            </div>
+
+            <div class="dx-comparison" style="max-width:880px;margin:0 auto 32px;">
+                <div class="dx-col dx-col-classic">
+                    <span class="dx-col-label">안쪽 루프 (Inner Loop)</span>
+                    <p>에이전트가 한 작업을 수행하는 과정 — 코드 읽기, 수정, 테스트, 반복. DX 10가지가 여기를 떠받친다. 이미 상당히 자동화됐다.</p>
+                </div>
+                <div class="dx-col dx-col-ax">
+                    <span class="dx-col-label">바깥 루프 (Outer Loop)</span>
+                    <p>무엇을 시킬지 정하고, 큐에 넣고, 결과를 검증하고, 다시 투입하는 과정. 여태 <strong>사람이 맡던 자리</strong>다. 진짜 새로운 건 여기에 있다.</p>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <strong>에이전트한테 일을 시키는 사람을 없애라.</strong> 에이전트 한 명을 빠르게 만드는 경쟁은 이미 끝났다. 다음 레버리지는 작업을 정의·분배·검증·재투입하는 바깥 루프를 자동화하는 데 있다. 트리거(이슈 생성, CI 실패, 모니터링 알람)가 작업을 만들고, 검증 게이트가 통과 여부를 판정하고, 실패하면 다시 큐로 돌려보내는 — 사람이 매번 끼어들지 않아도 도는 고리를 설계하는 일이다.
+            </div>
+
+            <div class="insight-box">
+                <strong>그래서 병목은 '판단'으로 옮겨갔다.</strong> AI가 AI를 만들기 시작하면서 코드 생성은 사실상 공짜가 됐다. 희소해진 건 "이게 맞는가, 할 가치가 있는가, 충분한가"를 가려내는 판단력이다. 바깥 루프를 자동화할수록 사람의 역할은 키보드를 두드리는 쪽에서 검증 기준과 정지 조건을 설계하는 쪽으로 이동한다. 검증 게이트의 품질이 곧 시스템 전체의 품질 상한이 된다.
             </div>
         </div>
     </section>
@@ -452,6 +484,11 @@
                             <td>아키텍처 기준</td>
                             <td>사람이 유지보수하기 좋은 구조</td>
                             <td class="evo-highlight">사람 + AI가 이해·수정하기 좋은 구조</td>
+                        </tr>
+                        <tr>
+                            <td>작업을 시키는 주체</td>
+                            <td>사람이 매 작업을 직접 지시</td>
+                            <td class="evo-highlight">트리거·검증 게이트가 도는 바깥 루프 (사람은 기준을 설계)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -600,7 +637,7 @@
             </div>
             <div class="footer-bottom">
                 <p>Built by <a href="https://desty.github.io/">desty</a>. Last updated: 2026-05-16.</p>
-                <span class="footer-version">v2026.05</span>
+                <span class="footer-version">v2026.06</span>
             </div>
         </div>
     </footer>
